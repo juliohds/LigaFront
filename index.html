@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página inicial</title>
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
+
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <nav class="black">
+        <a href="#" data-target="slide-out" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+        </a>
+        <div class="row">
+
+            <a href="#!" class="breadcrumb">Home</a>
+
+            <div class="right" id="btnLogin">
+                <a class="waves-effect waves-light btn blue modal-trigger" href="#modalLogin">Entrar</a>
+                <a class="waves-effect waves-light btn indigo darken-2">Facebook</a>
+                <a class="waves-effect waves-light btn blue margin-right-10 modal-trigger" href="#modalCadastro">Cadasrar</a>
+            </div>
+            <div class="input-field col s2 right">
+                <i class="material-icons prefix">lock</i>
+                <input id="icon_telephone" type="password" class="validate white-text">
+                <label for="icon_telephone">Senha</label>
+            </div>
+            <div class="input-field col s2 right">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate white-text">
+                <label for="icon_prefix">Usuário</label>
+            </div>
+            <div class="right" id="btnLogout" style="display: none">
+                <a class="waves-effect waves-light btn blue margin-right-10">Sair</a>
+            </div>
+        </div>
+    </nav>
+
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="./img/background_menu.jpg">
+                </div>
+
+                <a href="#user">
+                    <img class="circle" src="./img/sem_foto.jpg">
+                </a>
+                <a href="#name">
+                    <span class="white-text name">John Doe</span>
+                </a>
+                <a href="#email">
+                    <span class="white-text email">jdandturk@gmail.com</span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <a href="#!">
+                <i class="material-icons">cloud</i>First Link With Icon</a>
+        </li>
+        <li>
+            <a href="#!">Second Link</a>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a class="subheader">Subheader</a>
+        </li>
+        <li>
+            <a class="waves-effect" href="#!">Third Link With Waves</a>
+        </li>
+    </ul>
+
+    <div class="row">
+        <div class="col s12">
+            <center>
+                <h1 id="txtInicio"></h1>
+            </center>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col s3"></div>
+
+        <div class="col s4 margin-top-20">
+            <div class="row">
+                <div class="col s12 m7">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://portal9677.blob.core.windows.net/portal/2017/05/startup-kYAF-621x414LiveMint-620x336.jpg">
+                        </div>
+                        <div class="card-content">
+                            <p>Cadastre sua startup no nosso site, Aqui podemos potencializar seu serviço, fazer novos contratos
+                                e trazer networking de grandes empresas até o seu negócio</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Cadastre aqui!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s4 margin-top-20">
+            <div class="row">
+                <div class="col s12 m7">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="http://conceptodefinicion.de/wp-content/uploads/2016/06/Gran_Empresa.jpg">
+                        </div>
+                        <div class="card-content">
+                            <p>Cadastre sua Grande empresa, nós encontramos a startup ideal para resolver o seu problema e a
+                                potencializamos para a excelencia no serviço.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Cadastre aqui!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modalCadastro" class="modal">
+        <div class="modal-content">
+            <h4>Cadastrar Acesso</h4>
+            <p>Preencha os campos para criar seu acesso ao site</p>
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s7">
+                        <input placeholder="Ex: Julio" id="nomeCad" type="text" class="validate">
+                        <label for="first_name">Nome </label>
+                    </div>
+                    <div class="input-field col s7">
+                        <input placeholder="Ex: example@example.com.br" id="emailCad" type="text" class="validate">
+                        <label for="first_name">Email (*)</label>
+                    </div>
+                    <div class="input-field col s7">
+                        <input id="senhaCad" type="password" placeholder="Ex: senha" class="validate">
+                        <label for="password">Senha (*)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button type="button" class="modal-close waves-effect waves-light btn green">Cancelar</a>
+                            <button type="button" id="btnCadastrarUsuario" class="waves-effect waves-light btn blue" style="margin-left: 20px">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </div>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
