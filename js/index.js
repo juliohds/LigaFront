@@ -3,14 +3,16 @@ $(document).ready(function() {
 
   $(".sidenav").sidenav();
   $(".modal").modal();
+  $('select').formSelect();
   $('.tabs').tabs();
+  carregarSelectMentor();
 
   carregarTabs();
 
   $("#btnCadStartup").click(function() {
     if (
       localStorage.getItem("id") == "" ||
-      localStorage.getItem("id") != null
+      localStorage.getItem("id") == null
     ) {
       M.toast({
         html: "Voce precisa fazer login antes!",
@@ -29,7 +31,7 @@ $(document).ready(function() {
   $("#btnCadEmpresa").click(function() {  
     if (
       localStorage.getItem("id") == "" ||
-      localStorage.getItem("id") != null
+      localStorage.getItem("id") == null
     ) {
       M.toast({
         html: "Voce precisa fazer login antes!",
@@ -94,6 +96,27 @@ $(document).ready(function() {
   });
 });
 
+function carregarSelectMentor() {
+
+  var elem = $("#mentores");
+  var instance = M.FormSelect.getInstance(elem);
+  
+  axios
+    .get(url + "mentor")
+    .then(function(response) {
+      console.log(response);
+      response.data.map(mentor =>{
+        $("#mentores").append(
+          "<option value="+mentor.id+">"+(mentor.tipo?mentor.tipo:'VAZIO')+"</option>"
+          )
+        });
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+    
+}
+
 function cadastrarNegocioBigEmpresa(){
   var elem = $("#modalCadastroEmpresa");
   var instance = M.Modal.getInstance(elem);
@@ -146,8 +169,16 @@ function cadastrarNegocio() {
     email: $("#cadEmpresaEmail").val(),
     telefone: $("#cadEmpresaTelefone").val(),
     socio: socio,
-    endereco: endereco
+    endereco: endereco,
+    mentor: mentor
   };
+
+  if($("#mentores").val() != null){ 
+    var mentor = {
+      id: $("#mentores").val()
+    }
+    data.mentor = mentor;
+  }
 
   console.log(data);
   

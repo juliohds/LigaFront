@@ -26,20 +26,28 @@ function login() {
   axios
     .post(url + "user/login", data)
     .then(function(response) {
-      M.toast({
-        html: "Usuário Logado com Sucesso!",
-        classes: "rounded green accent-3"
-      });
+        console.log(response)
+      if(response.data !=  ""){
+        M.toast({
+            html: "Usuário Logado com Sucesso!",
+            classes: "rounded green accent-3"
+        });
 
-      // Armazenar
-      localStorage.setItem("id", response.data.id);
-      localStorage.setItem("nome", response.data.nome);
-      localStorage.setItem("email", response.data.email);
+        // Armazenar
+        localStorage.setItem("id", response.data.id);
+        localStorage.setItem("nome", response.data.nome);
+        localStorage.setItem("email", response.data.email);
 
-      $("#btnLogin").hide();
-      $("#btnLogout").show(); 
+        $("#btnLogin").hide();
+        $("#btnLogout").show(); 
 
-      setDinamic();
+        setDinamic();
+      }else{
+        M.toast({
+            html: "Login ou senha inválidos!",
+            classes: "rounded red accent-3"
+          });
+      }      
     })
     .catch(function(error) {
       M.toast({
@@ -105,13 +113,18 @@ function logout() {
   $("#btnLogout").hide();
   
   setDinamic();
+
+  M.toast({
+    html: "Volte sempre :)",
+    classes: "rounded green accent-3"
+  });
 }
 
 function setDinamic() {
     
   $("#txtInicio").html(
     localStorage.getItem("nome")
-      ? "Seja Bem Vindo! " + localStorage.getItem("nome")
-      : "Seja Bem Vindo!"
+      ? "Pagina Inicial > Seja Bem Vindo " + localStorage.getItem("nome")
+      : "Pagina Inicial"
   );
 }
