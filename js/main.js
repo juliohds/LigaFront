@@ -1,5 +1,9 @@
 $(document).ready(function() {
   setDinamic();
+  
+  $("#forgetPassword").click(function() {
+    forgotPass();
+  });
 
   $("#btnLogout").click(function() {
     logout();
@@ -103,6 +107,49 @@ function cadastrarLogin() {
       console.log(error);
     });
 }
+
+
+function forgotPass(){
+
+  var email = $("#inputEmail").val();
+
+  if(email == "" || email == null){
+    M.toast({
+      html: "Preencha o campo de email para redefinição!",
+      classes: "rounded red accent-3"
+  });
+    return false;
+  }
+  var data = {
+    email: email,
+    senha: "semsenha",
+    nome: "vazio",
+  };
+
+  axios
+    .post(url + "user/forgot-password", data)
+    .then(function(response) {
+        console.log(response)
+      if(response.data ==  "ok"){
+        M.toast({
+            html: "Senha enviada para email!",
+            classes: "rounded green accent-3"
+        });
+      }else{
+        M.toast({
+            html: "Erro ao enviar email de senha!",
+            classes: "rounded red accent-3"
+          });
+      }      
+    })
+    .catch(function(error) {
+      M.toast({
+        html: "Erro ao enviar email de senha!",
+        classes: "rounded red accent-3"
+      });
+    });
+}
+
 function logout() {
   // Armazenar
   localStorage.setItem("id", "");
