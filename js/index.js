@@ -5,6 +5,8 @@ $(document).ready(function() {
   $(".modal").modal();
   $('.tabs').tabs();
 
+  carregarTabs();
+
   $("#btnCadStartup").click(function() {
     if (
       localStorage.getItem("id") == "" ||
@@ -44,10 +46,12 @@ $(document).ready(function() {
 
   $("#btnCadastrarNegocio").click(function() {
     cadastrarNegocio();
+    carregarTabs();
   });
 
   $("#btnCadastrarNegocio1").click(function() {
     cadastrarNegocioBigEmpresa();
+    carregarTabs();
   });
 
   $("#addSocioBigEmpresa").click(function() {
@@ -157,6 +161,97 @@ function cadastrarNegocio() {
       instance.close();
       console.log(response);
       socio = [];
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+function carregarTabs(){
+  carregarStartups();
+  carregarUsers();
+  carregarSocios();
+  carregarGe();
+}
+
+function carregarSocios(){
+  axios
+    .get(url + "socio")
+    .then(function(response) {
+      console.log(response);
+      response.data.map(startup =>{
+        $("#tabelaSocios").append(
+          "<tr>"+
+          "<td>"+startup.id+"</td>"+
+          "<td>"+startup.nome+"</td>"+
+          "<td>"+((startup.startup != null)? startup.startup.nome: "Nome não Informado")+"</td>"+
+          "<td>"+((startup.startup != null)? startup.startup.ramo: "Area não Informada")+"</td>"+
+          "</tr>"
+        )
+      });
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+function carregarUsers(){
+  axios
+    .get(url + "user")
+    .then(function(response) {
+      console.log(response);
+      response.data.map(startup =>{
+        $("#tabelaUsers").append(
+          "<tr>"+
+          "<td>"+startup.id+"</td>"+
+          "<td>"+startup.nome+"</td>"+
+          "<td>"+startup.email+"</td>"+
+          "</tr>"
+        )
+      });
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+function carregarGe(){
+  axios
+    .get(url + "grande-empresa")
+    .then(function(response) {
+      console.log(response);
+      response.data.map(startup =>{
+        $("#tabelaGe").append(
+          "<tr>"+
+          "<td>"+startup.nome+"</td>"+
+          "<td>"+startup.ramo+"</td>"+
+          "<td>"+startup.telefone+"</td>"+
+          "<td>"+startup.email+"</td>"+
+          "</tr>"
+        )
+      });
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+function carregarStartups(){
+  axios
+    .get(url + "startup")
+    .then(function(response) {
+      console.log(response);
+      response.data.map(startup =>{
+        $("#tabelaStartup").append(
+          "<tr>"+
+          "<td>"+startup.nome+"</td>"+
+          "<td>"+startup.ramo+"</td>"+
+          "<td>"+startup.telefone+"</td>"+
+          "<td>"+startup.email+"</td>"+
+          "<td>"+(startup.temEmpresa==true?'Sim':'Não')+"</td>"+
+          "</tr>"
+        )
+      });
     })
     .catch(function(error) {
       console.log(error);

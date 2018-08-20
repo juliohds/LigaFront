@@ -131,7 +131,7 @@
 
     <div class="row">
         <div class="col s12">
-            <ul class="tabs">
+            <ul class="tabs  blue-text">
                 <li class="tab col s3">
                     <a href="#test1">Startups</a>
                 </li>
@@ -139,124 +139,141 @@
                     <a class="active" href="#test2">Grandes Empresas</a>
                 </li>
                 <li class="tab col s3">
-                    <a href="#test3">Usuarios</a>
+                    <a href="#test3">Sócios</a>
                 </li>
-                <li class="tab col s3 disabled">
-                    <a href="#test4">Em Breve</a>
+                <li class="tab col s3 ">
+                    <a href="#test4">Usuarios</a>
                 </li>
             </ul>
         </div>
-        <div id="test1" class="col s12">
+        <div id="test1" class="col s12 min-height-200">
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
+                        <th>Nome</th>
+                        <th>Aréa de Atuação</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Com Empresa</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabelaStartup">
                 </tbody>
             </table>
         </div>
-        <div id="test2" class="col s12">
+        <div id="test2" class="col s12 min-height-200">
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
+                        <th>Nome</th>
+                        <th>Aréa de Atuação</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabelaGe">
                 </tbody>
             </table>
         </div>
-        <div id="test3" class="col s12">
+        <div id="test3" class="col s12 min-height-200">
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Startup</th>
+                        <th>Area de Atuação</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabelaSocios">
                 </tbody>
             </table>
         </div>
-        <div id="test4" class="col s12">Test 4</div>
+        <div id="test4" class="col s12 min-height-200">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaUsers">
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Modal Cadastro Empresa -->
     <div id="modalCadastroEmpresa" class="modal">
-            <div class="modal-content">
-                <h4>Cadastrar Grande Empresa</h4>
-                <p>Vamos achar a melhor startup pro seu serviço</p>
-    
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input placeholder="Ex: JulioHDS" id="nomeBigEmpresa" type="text" class="validate">
-                        <label for="ramo">Nome </label>
-                    </div>
-                    <div class="input-field col s8">
-                        <input placeholder="Ex: Ramo da tecnologia a 3 anos no mercado propondo soluções de B.I" id="ramoBigEmpresa" type="text" class="validate">
-                        <label for="ramo">Ramo do negócio (o que ele faz) </label>
-                    </div>
+        <div class="modal-content">
+            <h4>Cadastrar Grande Empresa</h4>
+            <p>Vamos achar a melhor startup pro seu serviço</p>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="Ex: JulioHDS" id="nomeBigEmpresa" type="text" class="validate">
+                    <label for="ramo">Nome </label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input placeholder="Ex: Julio (majoritário)" id="inputSocioNameBigEmpresa" type="text" class="validate">
-                        <label for="first_name">Sócios da empresa (*)</label>
-                    </div>
-                    <div class="col s2">
-                        <a class="btn-floating btn-large waves-effect waves-light blue" id="addSocioBigEmpresa">
-                            <i class="material-icons">add</i>
-                        </a>
-                    </div>
+                <div class="input-field col s8">
+                    <input placeholder="Ex: Ramo da tecnologia a 3 anos no mercado propondo soluções de B.I" id="ramoBigEmpresa" type="text"
+                        class="validate">
+                    <label for="ramo">Ramo do negócio (o que ele faz) </label>
                 </div>
-                <div class="row">
-    
-                    <div class="input-field col s4">
-                        <input placeholder="Ex: São Paulo" id="EndcidadeBigEmpresa" type="text" class="validate">
-                        <label for="first_name">Cidade (*)</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input placeholder="Ex: Rua dos Almirantes" id="EndruaBigEmpresa" type="text" class="validate">
-                        <label for="first_name">Rua (*)</label>
-                    </div>
-                    <div class="input-field col s3">
-                        <input placeholder="Ex: 90" id="numberBigEmpresa" type="number" class="validate">
-                        <label for="first_name">Numero (*)</label>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="Ex: Julio (majoritário)" id="inputSocioNameBigEmpresa" type="text" class="validate">
+                    <label for="first_name">Sócios da empresa (*)</label>
                 </div>
-                <div class="row">
-                    <div class="col s5">
-                        <input placeholder="Ex: example@example.com.br" id="cadEmpresaEmailBigEmpresa" type="text" class="validate">
-                        <label for="first_name">Email (*)</label>
-                    </div>
-                    <div class="col s3">
-                        <input placeholder="Ex: 44444-44444" id="cadEmpresaTelefoneBigEmpresa" type="text" class="validate">
-                        <label for="first_name">Telefone (*)</label>
-                    </div>
+                <div class="col s2">
+                    <a class="btn-floating btn-large waves-effect waves-light blue" id="addSocioBigEmpresa">
+                        <i class="material-icons">add</i>
+                    </a>
                 </div>
-                <div class="row">
-                    <br>
-                    <div class="col s5" style="margin-top: 32px">
-                        <button type="button" class="modal-close waves-effect waves-light btn grey">Cancelar</a>
-                            <button type="button" id="btnCadastrarNegocio1" class="waves-effect waves-light btn green" style="margin-left: 20px">Cadastrar</a>
-                    </div>
-                    <br>
-                    <div class="col s7">
-                        <div id="socios">
-                            <div class="collection" id="divSociosBigEmpresa">
-                                <a href="#!" class="collection-item blue white-text">Sócios</a>
-                            </div>
+            </div>
+            <div class="row">
+
+                <div class="input-field col s4">
+                    <input placeholder="Ex: São Paulo" id="EndcidadeBigEmpresa" type="text" class="validate">
+                    <label for="first_name">Cidade (*)</label>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="Ex: Rua dos Almirantes" id="EndruaBigEmpresa" type="text" class="validate">
+                    <label for="first_name">Rua (*)</label>
+                </div>
+                <div class="input-field col s3">
+                    <input placeholder="Ex: 90" id="numberBigEmpresa" type="number" class="validate">
+                    <label for="first_name">Numero (*)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s5">
+                    <input placeholder="Ex: example@example.com.br" id="cadEmpresaEmailBigEmpresa" type="text" class="validate">
+                    <label for="first_name">Email (*)</label>
+                </div>
+                <div class="col s3">
+                    <input placeholder="Ex: 44444-44444" id="cadEmpresaTelefoneBigEmpresa" type="text" class="validate">
+                    <label for="first_name">Telefone (*)</label>
+                </div>
+            </div>
+            <div class="row">
+                <br>
+                <div class="col s5" style="margin-top: 32px">
+                    <button type="button" class="modal-close waves-effect waves-light btn grey">Cancelar</a>
+                        <button type="button" id="btnCadastrarNegocio1" class="waves-effect waves-light btn green" style="margin-left: 20px">Cadastrar</a>
+                </div>
+                <br>
+                <div class="col s7">
+                    <div id="socios">
+                        <div class="collection" id="divSociosBigEmpresa">
+                            <a href="#!" class="collection-item blue white-text">Sócios</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Modal Cadastro Startup -->
     <div id="modalCadastroStartup" class="modal">
