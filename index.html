@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
 
     <link rel="stylesheet" href="./css/index.css">
+    <script>
+        localStorage.clear();
+    </script>
 </head>
 
 <body>
@@ -21,26 +24,29 @@
         </a>
         <div class="row">
 
-            <a href="#!" class="breadcrumb">Home</a>
+            <a href="#!" class="breadcrumb white-text" id="txtInicio" style="margin-left: 10px;"></a>
 
             <div class="right" id="btnLogin">
-                <a class="waves-effect waves-light btn blue modal-trigger" href="#modalLogin">Entrar</a>
-                <a class="waves-effect waves-light btn indigo darken-2">Facebook</a>
+                <a class="waves-effect waves-light btn blue" id="btnLogar">Entrar</a>
+                <a class="waves-effect waves-light btn indigo darken-2" id="btnLogarFacebook">Facebook</a>
                 <a class="waves-effect waves-light btn blue margin-right-10 modal-trigger" href="#modalCadastro">Cadasrar</a>
             </div>
-            <div class="input-field col s2 right">
-                <i class="material-icons prefix">lock</i>
-                <input id="icon_telephone" type="password" class="validate white-text">
-                <label for="icon_telephone">Senha</label>
-            </div>
-            <div class="input-field col s2 right">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate white-text">
-                <label for="icon_prefix">Usuário</label>
-            </div>
+
             <div class="right" id="btnLogout" style="display: none">
                 <a class="waves-effect waves-light btn blue margin-right-10">Sair</a>
             </div>
+
+            <div class="input-field col s2 right">
+                <i class="material-icons prefix">lock</i>
+                <input id="inputSenha" type="password" class="validate white-text">
+                <label for="inputSenha">Senha</label>
+            </div>
+            <div class="input-field col s2 right">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="inputEmail" type="text" class="validate white-text">
+                <label for="inputEmail">Usuário</label>
+            </div>
+
         </div>
     </nav>
 
@@ -81,14 +87,6 @@
     </ul>
 
     <div class="row">
-        <div class="col s12">
-            <center>
-                <h1 id="txtInicio"></h1>
-            </center>
-        </div>
-    </div>
-
-    <div class="row">
 
         <div class="col s3"></div>
 
@@ -104,7 +102,7 @@
                                 e trazer networking de grandes empresas até o seu negócio</p>
                         </div>
                         <div class="card-action">
-                            <a href="#">Cadastre aqui!</a>
+                            <a href="#" id="btnCadStartup" class="blue-text">Cadastre aqui!</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +120,7 @@
                                 potencializamos para a excelencia no serviço.</p>
                         </div>
                         <div class="card-action">
-                            <a href="#">Cadastre aqui!</a>
+                            <a href="#" id="btnCadEmpresa" class="blue-text">Cadastre aqui!</a>
                         </div>
                     </div>
                 </div>
@@ -131,18 +129,230 @@
 
     </div>
 
-    <!-- Modal Structure -->
-    <div id="modalLogin" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3">
+                    <a href="#test1">Startups</a>
+                </li>
+                <li class="tab col s3">
+                    <a class="active" href="#test2">Grandes Empresas</a>
+                </li>
+                <li class="tab col s3">
+                    <a href="#test3">Usuarios</a>
+                </li>
+                <li class="tab col s3 disabled">
+                    <a href="#test4">Em Breve</a>
+                </li>
+            </ul>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        <div id="test1" class="col s12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="test2" class="col s12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="test3" class="col s12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="test4" class="col s12">Test 4</div>
+    </div>
+
+    <!-- Modal Cadastro Empresa -->
+    <div id="modalCadastroEmpresa" class="modal">
+            <div class="modal-content">
+                <h4>Cadastrar Grande Empresa</h4>
+                <p>Vamos achar a melhor startup pro seu serviço</p>
+    
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input placeholder="Ex: JulioHDS" id="nomeBigEmpresa" type="text" class="validate">
+                        <label for="ramo">Nome </label>
+                    </div>
+                    <div class="input-field col s8">
+                        <input placeholder="Ex: Ramo da tecnologia a 3 anos no mercado propondo soluções de B.I" id="ramoBigEmpresa" type="text" class="validate">
+                        <label for="ramo">Ramo do negócio (o que ele faz) </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input placeholder="Ex: Julio (majoritário)" id="inputSocioNameBigEmpresa" type="text" class="validate">
+                        <label for="first_name">Sócios da empresa (*)</label>
+                    </div>
+                    <div class="col s2">
+                        <a class="btn-floating btn-large waves-effect waves-light blue" id="addSocioBigEmpresa">
+                            <i class="material-icons">add</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+    
+                    <div class="input-field col s4">
+                        <input placeholder="Ex: São Paulo" id="EndcidadeBigEmpresa" type="text" class="validate">
+                        <label for="first_name">Cidade (*)</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input placeholder="Ex: Rua dos Almirantes" id="EndruaBigEmpresa" type="text" class="validate">
+                        <label for="first_name">Rua (*)</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input placeholder="Ex: 90" id="numberBigEmpresa" type="number" class="validate">
+                        <label for="first_name">Numero (*)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <input placeholder="Ex: example@example.com.br" id="cadEmpresaEmailBigEmpresa" type="text" class="validate">
+                        <label for="first_name">Email (*)</label>
+                    </div>
+                    <div class="col s3">
+                        <input placeholder="Ex: 44444-44444" id="cadEmpresaTelefoneBigEmpresa" type="text" class="validate">
+                        <label for="first_name">Telefone (*)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <div class="col s5" style="margin-top: 32px">
+                        <button type="button" class="modal-close waves-effect waves-light btn grey">Cancelar</a>
+                            <button type="button" id="btnCadastrarNegocio1" class="waves-effect waves-light btn green" style="margin-left: 20px">Cadastrar</a>
+                    </div>
+                    <br>
+                    <div class="col s7">
+                        <div id="socios">
+                            <div class="collection" id="divSociosBigEmpresa">
+                                <a href="#!" class="collection-item blue white-text">Sócios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Modal Cadastro Startup -->
+    <div id="modalCadastroStartup" class="modal">
+        <div class="modal-content">
+            <h4>Cadastrar startup</h4>
+            <p>Vamos juntos construir um sonho</p>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="Ex: JulioHDS" id="nome" type="text" class="validate">
+                    <label for="ramo">Nome </label>
+                </div>
+                <div class="input-field col s8">
+                    <input placeholder="Ex: Ramo da tecnologia a 3 anos no mercado propondo soluções de B.I" id="ramo" type="text" class="validate">
+                    <label for="ramo">Ramo do negócio (o que ele faz) </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input placeholder="Ex: Julio (majoritário)" id="inputSocioName" type="text" class="validate">
+                    <label for="first_name">Sócios da empresa (*)</label>
+                </div>
+                <div class="col s2">
+                    <a class="btn-floating btn-large waves-effect waves-light blue" id="addSocio">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
+                <div class="col s5">
+                    <label for="inputEhEmpresa">Empresa já constituida? (*)</label>
+                    <!-- Disabled Switch -->
+                    <div class="switch">
+                        <label>
+                            Não
+                            <input id="inputEhEmpresa" type="checkbox">
+                            <span class="lever"></span>
+                            Sim
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="input-field col s4">
+                    <input placeholder="Ex: São Paulo" id="Endcidade" type="text" class="validate">
+                    <label for="first_name">Cidade (*)</label>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="Ex: Rua dos Almirantes" id="Endrua" type="text" class="validate">
+                    <label for="first_name">Rua (*)</label>
+                </div>
+                <div class="input-field col s3">
+                    <input placeholder="Ex: 90" id="Endnumero" type="number" class="validate">
+                    <label for="first_name">Numero (*)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s5">
+                    <input placeholder="Ex: example@example.com.br" id="cadEmpresaEmail" type="text" class="validate">
+                    <label for="first_name">Email (*)</label>
+                </div>
+                <div class="col s3">
+                    <input placeholder="Ex: 44444-44444" id="cadEmpresaTelefone" type="text" class="validate">
+                    <label for="first_name">Telefone (*)</label>
+                </div>
+                <div class="col s4">
+                    <label for="inputBuscaInvest">Buscando investimento? (*)</label>
+                    <!-- Disabled Switch -->
+                    <div class="switch">
+                        <label>
+                            Não
+                            <input id="inputBuscaInvest" type="checkbox">
+                            <span class="lever"></span>
+                            Sim
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <br>
+                <div class="col s5" style="margin-top: 32px">
+                    <button type="button" class="modal-close waves-effect waves-light btn grey">Cancelar</a>
+                        <button type="button" id="btnCadastrarNegocio" class="waves-effect waves-light btn green" style="margin-left: 20px">Cadastrar</a>
+                </div>
+                <br>
+                <div class="col s7">
+                    <div id="socios">
+                        <div class="collection" id="divSocios">
+                            <a href="#!" class="collection-item blue white-text">Sócios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Modal Structure -->
+    <!-- Modal Cadastro Login -->
     <div id="modalCadastro" class="modal">
         <div class="modal-content">
             <h4>Cadastrar Acesso</h4>
@@ -181,6 +391,7 @@
     <script src="./js/config.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/step-form.js"></script>
 </body>
 
 </html>
