@@ -1,14 +1,11 @@
-const server=require('node-http-server');
- 
-const config=new server.Config;
-config.errors['404']    = 'These are not the files you are looking for...';
-config.contentType.mp4  = 'video/mp4';
-config.port             = 80;
-config.verbose          = true;
-config.root             = '~/myApp/'
-config.https.privateKey = `./private.key`;
-config.https.certificate= `./certificate.crt`;
-config.https.port       = 443;
-config.https.only       = true;
+const server = require("node-http-server");
 
-server.deploy(config);
+server.deploy({
+  port: 8000,
+  https: {
+    privateKey: `./private.key`,
+    certificate: `./certificate.crt`,
+    port: 4433,
+    only: true
+  }
+});
