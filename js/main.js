@@ -61,10 +61,11 @@ function login() {
     });
 }
 
-function loginComFacebook(email) {
+function loginComFacebook(email, name) {
 
   var data = {
     email: email,
+    name: name,
     senha: ""
   };
 
@@ -80,7 +81,7 @@ function loginComFacebook(email) {
 
         // Armazenar
         localStorage.setItem("id", response.data.id);
-        localStorage.setItem("nome", response.data.nome);
+        localStorage.setItem("nome", name);
         localStorage.setItem("email", response.data.email);
 
         $("#btnLogin").hide();
@@ -282,6 +283,6 @@ function setDinamic() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=name,email', function(response) {
       console.log('Successful login for: ' + response.name);
-      loginComFacebook(response.name);
+      loginComFacebook(response.email, response.name);
     });
   }
