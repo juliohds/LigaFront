@@ -61,6 +61,47 @@ function login() {
     });
 }
 
+function loginComFacebook(email) {
+
+  var data = {
+    email: email,
+    senha: ""
+  };
+
+  axios
+    .post(url + "user/loginFace", data)
+    .then(function(response) {
+        console.log(response)
+      if(response.data !=  ""){
+        M.toast({
+            html: "Usuário Logado com Sucesso!",
+            classes: "rounded green accent-3"
+        });
+
+        // Armazenar
+        localStorage.setItem("id", response.data.id);
+        localStorage.setItem("nome", response.data.nome);
+        localStorage.setItem("email", response.data.email);
+
+        $("#btnLogin").hide();
+        $("#btnLogout").show(); 
+
+        setDinamic();
+      }else{
+        M.toast({
+            html: "Usuario nao cadastrado!",
+            classes: "rounded red accent-3"
+          });
+      }      
+    })
+    .catch(function(error) {
+      M.toast({
+        html: "Usuario nao cadastrado!",
+        classes: "rounded red accent-3"
+      });
+    });
+}
+
 function cadastrarLogin() {
   var elem = $("#modalCadastro");
   var instance = M.Modal.getInstance(elem);
@@ -243,10 +284,8 @@ function setDinamic() {
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
+    FB.api('/me?fields=name,email', function(response) {
       console.log('Successful login for: ' + response.name);
-      console.log(response)
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+      loginComFacebook(response.name);
     });
   }
