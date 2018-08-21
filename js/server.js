@@ -1,11 +1,11 @@
 const server = require("node-http-server");
 
 server.deploy({
-  port: 8000,
+  port: 80,
   https: {
     privateKey: `./private.key`,
     certificate: `./certificate.crt`,
-    port: 4433,
+    port: 443,
     only: true
   }
 });
