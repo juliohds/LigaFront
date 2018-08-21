@@ -25,11 +25,14 @@
         <div class="row">
 
             <a href="#!" class="breadcrumb white-text" id="txtInicio" style="margin-left: 10px;"></a>
-            <a href="#" id="forgetPassword" class="right">Esqueci a senha</a>   
+            <a href="#" id="forgetPassword" class="right">Esqueci a senha</a>
 
             <div class="right" id="btnLogin">
                 <a class="waves-effect waves-light btn blue" id="btnLogar">Entrar</a>
-                <a class="waves-effect waves-light btn indigo darken-2" id="btnLogarFacebook">Facebook</a>
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button>
+                <div id="status">
+                </div>
                 <a class="waves-effect waves-light btn blue margin-right-10 modal-trigger" href="#modalCadastro">Cadasrar</a>
             </div>
 
@@ -353,7 +356,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <select class="browser-default" id="mentores">
-                      <option value="" disabled selected>Tipo de Mentor Procurado:</option>
+                        <option value="" disabled selected>Tipo de Mentor Procurado:</option>
                     </select>
                 </div>
             </div>
